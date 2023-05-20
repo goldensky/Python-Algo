@@ -1,7 +1,8 @@
 import unittest
+from typing import List
 
 
-def binary_search(lst, key):
+def binary_search(lst: List[int], key: int) -> int:
     low = 0
     high = len(lst) - 1
 
@@ -17,7 +18,7 @@ def binary_search(lst, key):
     return -1
 
 
-def sum_to_k(lst, k):
+def sum_to_k(lst: List[int], k: int) -> List[(int, int)]:
     lst.sort()
     total_result = []
     for index, item in enumerate(lst):

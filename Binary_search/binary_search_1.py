@@ -1,7 +1,8 @@
 import unittest
+from typing import List
 
 
-def binary_search(lst, key):
+def binary_search(lst: List[int], key: int) -> int:
     low = 0
     high = len(lst) - 1
 
