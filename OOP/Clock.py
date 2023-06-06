@@ -57,6 +57,10 @@ class Clock:
         s = self.__verify_data(other)
         return self.seconds < s
 
+    def __le__(self, other):
+        s = self.__verify_data(other)
+        return self.seconds <= s
+
 
 class TestClock(unittest.TestCase):
     def test__add__(self):
@@ -143,9 +147,19 @@ class TestClock(unittest.TestCase):
     def test__lt__(self):
         c1 = Clock(100)
         c2 = Clock(200)
-        print(c1 < c2)
         self.assertTrue(c1 < c2)
         self.assertTrue(c2 > c1)
+
+    def test__le__(self):
+        c1 = Clock(100)
+        c2 = Clock(100)
+        c3 = Clock(200)
+        self.assertTrue(c1 <= c2)
+        self.assertTrue(c2 >= c1)
+
+        self.assertTrue(c2 <= c3)
+        self.assertTrue(c3 >= c2)
+
 
 
 if __name__ == '__main__':
