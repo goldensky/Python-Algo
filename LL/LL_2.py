@@ -23,7 +23,7 @@ class LinkedList:
         node.next = self.head
         self.head = node
 
-    def append(self, value):
+    def push_back(self, value):
         node = Node(value)
         if self.head == None:
             self.head = node
@@ -71,9 +71,9 @@ class TestLinkedList(unittest.TestCase):
     def test_1(self):
         l = LinkedList()
         l.push_front(10)
-        l.append(1)
-        l.append(2)
-        l.append(3)
+        l.push_back(1)
+        l.push_back(2)
+        l.push_back(3)
         l.push_front(20)
         print(l.traversal())
 
