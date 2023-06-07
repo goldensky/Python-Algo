@@ -86,6 +86,22 @@ class LinkedList:
         if k == 1:
             prev.next = temp.next
 
+    def pop_front(self):
+        if not self.head:
+            return
+        self.head = self.head.next
+
+    def pop_back(self):
+        if not self.head:
+            return
+
+        temp = self.head
+        while temp.next.next:
+            temp = temp.next
+
+        temp.next = temp.next.next
+        self.tail = temp
+
 
 class TestLinkedList(unittest.TestCase):
     def test_create_linked_list(self):
@@ -150,6 +166,35 @@ class TestLinkedList(unittest.TestCase):
         l.delete_by_value(34)
         result = l.traversal()
         self.assertEqual(result, "2->3->")
+
+    def test_pop_front(self):
+        l = LinkedList()
+        l.push_front(1)
+        l.append(2)
+        l.append(3)
+        l.append(4)
+        l.append(5)
+        result = l.traversal()
+        self.assertEqual(result, "1->2->3->4->5->")
+
+        l.pop_front()
+        result = l.traversal()
+        self.assertEqual(result, "2->3->4->5->")
+
+    def test_pop_back(self):
+        l = LinkedList()
+        l.push_front(1)
+        l.append(2)
+        l.append(3)
+        l.append(4)
+        l.append(5)
+        result = l.traversal()
+        self.assertEqual(result, "1->2->3->4->5->")
+
+        l.pop_back()
+        result = l.traversal()
+        self.assertEqual(result, "1->2->3->4->")
+
 
 
 if __name__ == "__main__":
