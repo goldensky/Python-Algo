@@ -34,7 +34,7 @@ class LinkedList:
         node.next = self.head
         self.head = node
 
-    def append(self, value):
+    def push_back(self, value):
         node = Node(value)
 
         if self.head is None:
@@ -107,20 +107,20 @@ class TestLinkedList(unittest.TestCase):
     def test_create_linked_list(self):
         l = LinkedList()
         l.push_front(1)
-        l.append(2)
-        l.append(3)
-        l.append(4)
-        l.append(5)
+        l.push_back(2)
+        l.push_back(3)
+        l.push_back(4)
+        l.push_back(5)
         result = l.traversal()
         self.assertEqual(result, "1->2->3->4->5->")
 
     def test_insert_after_value(self):
         l = LinkedList()
         l.push_front(1)
-        l.append(2)
-        l.append(3)
-        l.append(4)
-        l.append(5)
+        l.push_back(2)
+        l.push_back(3)
+        l.push_back(4)
+        l.push_back(5)
         result = l.traversal()
         self.assertEqual(result, "1->2->3->4->5->")
 
@@ -133,10 +133,10 @@ class TestLinkedList(unittest.TestCase):
     def test_delete_kth_node(self):
         l = LinkedList()
         l.push_front(1)
-        l.append(2)
-        l.append(3)
-        l.append(4)
-        l.append(5)
+        l.push_back(2)
+        l.push_back(3)
+        l.push_back(4)
+        l.push_back(5)
         result = l.traversal()
         self.assertEqual(result, "1->2->3->4->5->")
 
@@ -153,10 +153,10 @@ class TestLinkedList(unittest.TestCase):
     def test_delete_by_value(self):
         l = LinkedList()
         l.push_front(1)
-        l.append(2)
-        l.append(3)
-        l.append(4)
-        l.append(5)
+        l.push_back(2)
+        l.push_back(3)
+        l.push_back(4)
+        l.push_back(5)
         result = l.traversal()
         self.assertEqual(result, "1->2->3->4->5->")
 
@@ -170,10 +170,10 @@ class TestLinkedList(unittest.TestCase):
     def test_pop_front(self):
         l = LinkedList()
         l.push_front(1)
-        l.append(2)
-        l.append(3)
-        l.append(4)
-        l.append(5)
+        l.push_back(2)
+        l.push_back(3)
+        l.push_back(4)
+        l.push_back(5)
         result = l.traversal()
         self.assertEqual(result, "1->2->3->4->5->")
 
@@ -184,10 +184,10 @@ class TestLinkedList(unittest.TestCase):
     def test_pop_back(self):
         l = LinkedList()
         l.push_front(1)
-        l.append(2)
-        l.append(3)
-        l.append(4)
-        l.append(5)
+        l.push_back(2)
+        l.push_back(3)
+        l.push_back(4)
+        l.push_back(5)
         result = l.traversal()
         self.assertEqual(result, "1->2->3->4->5->")
 
