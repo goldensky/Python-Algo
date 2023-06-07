@@ -28,7 +28,7 @@ class LinkedList:
 
         print("")
 
-    def push_ahead(self, value):
+    def push_front(self, value):
         node = Node(value)
 
         node.next = self.head
@@ -90,7 +90,7 @@ class LinkedList:
 class TestLinkedList(unittest.TestCase):
     def test_create_linked_list(self):
         l = LinkedList()
-        l.push_ahead(1)
+        l.push_front(1)
         l.append(2)
         l.append(3)
         l.append(4)
@@ -100,7 +100,7 @@ class TestLinkedList(unittest.TestCase):
 
     def test_insert_after_value(self):
         l = LinkedList()
-        l.push_ahead(1)
+        l.push_front(1)
         l.append(2)
         l.append(3)
         l.append(4)
@@ -116,7 +116,7 @@ class TestLinkedList(unittest.TestCase):
 
     def test_delete_kth_node(self):
         l = LinkedList()
-        l.push_ahead(1)
+        l.push_front(1)
         l.append(2)
         l.append(3)
         l.append(4)
@@ -124,7 +124,6 @@ class TestLinkedList(unittest.TestCase):
         result = l.traversal()
         self.assertEqual(result, "1->2->3->4->5->")
 
-        # l.print_list()
         l.delete_kth_node(1)
         l.delete_kth_node(4)
 
@@ -137,7 +136,7 @@ class TestLinkedList(unittest.TestCase):
 
     def test_delete_by_value(self):
         l = LinkedList()
-        l.push_ahead(1)
+        l.push_front(1)
         l.append(2)
         l.append(3)
         l.append(4)
