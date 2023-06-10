@@ -2,14 +2,14 @@ import unittest
 
 
 class Node:
-    def __init__(self, data):
+    def __init__(self, data, next=None):
         self.data = data
-        self.next = None
+        self.next = next
 
 
 class LinkedList:
-    def __init__(self):
-        self.head = None
+    def __init__(self, head=None):
+        self.head = head
 
     def traversal(self):
         result = []
@@ -193,6 +193,11 @@ class TestLinkedList(unittest.TestCase):
 
         l.pop_back()
         result = l.traversal()
+        self.assertEqual(result, "1->2->3->4->")
+
+    def test_create_list_2(self):
+        lst = LinkedList(Node(1, Node(2, Node(3, Node(4)))))
+        result = lst.traversal()
         self.assertEqual(result, "1->2->3->4->")
 
 
