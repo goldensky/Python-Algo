@@ -112,6 +112,15 @@ class LinkedList:
             current = next_element
         self.head = previous
 
+    def find_middle(self):
+        fast = self.head
+        slow = self.head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
 
 class TestLinkedList(unittest.TestCase):
     def test_create_linked_list(self):
@@ -219,6 +228,23 @@ class TestLinkedList(unittest.TestCase):
 
         result = lst.traversal()
         self.assertEqual(result, "4->3->2->1->")
+
+    def test_find_middle(self):
+        lst = LinkedList(Node(1, Node(2, Node(3, Node(4, Node(5))))))
+        result = lst.traversal()
+        self.assertEqual(result, "1->2->3->4->5->")
+
+        middle = lst.find_middle()
+        self.assertEqual(middle.data, 3)
+
+        #
+        lst = LinkedList(Node(1, Node(2, Node(3, Node(4, Node(5, Node(6)))))))
+        result = lst.traversal()
+
+        self.assertEqual(result, "1->2->3->4->5->6->")
+
+        middle = lst.find_middle()
+        self.assertEqual(middle.data, 4)
 
 
 if __name__ == "__main__":
