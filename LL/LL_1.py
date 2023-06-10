@@ -100,7 +100,17 @@ class LinkedList:
             temp = temp.next
 
         temp.next = temp.next.next
-        self.tail = temp
+        # self.tail = temp
+
+    def reverse_list(self):
+        previous = None
+        current = self.head
+        while current is not None:
+            next_element = current.next
+            current.next = previous
+            previous = current
+            current = next_element
+        self.head = previous
 
 
 class TestLinkedList(unittest.TestCase):
@@ -200,6 +210,15 @@ class TestLinkedList(unittest.TestCase):
         result = lst.traversal()
         self.assertEqual(result, "1->2->3->4->")
 
+    def test_reverse_list(self):
+        lst = LinkedList(Node(1, Node(2, Node(3, Node(4)))))
+        result = lst.traversal()
+        self.assertEqual(result, "1->2->3->4->")
+
+        lst.reverse_list()
+
+        result = lst.traversal()
+        self.assertEqual(result, "4->3->2->1->")
 
 
 if __name__ == "__main__":
